@@ -1,0 +1,158 @@
+.key-item-cards{
+  background: #6574F922 0% 0% no-repeat padding-box !important;
+border-radius: 4px;
+  font: normal normal normal 13px/24px Montserrat;
+  color: #FFFFFF;
+}
+.tutorials-cards{
+  background: transparent linear-gradient(180deg, #E2B627 0%, #E88750 100%) 0% 0% no-repeat padding-box;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 10px !important;
+}
+.practical-problem-cards{
+  background: transparent linear-gradient(180deg, #dc27e2 0%, #5350e8 100%) 0% 0% no-repeat padding-box;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 10px !important;
+}
+.scrolling-wrapper {
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+
+  .card {
+    display: inline-block;
+  }
+}
+.acedemics-bridge-btn{
+  background: #6574F9 0% 0% no-repeat padding-box !important;
+  border-radius: 8px;
+  font: normal normal bold 14px/24px Montserrat !important;
+}
+.acedemics-bridge-btn:hover{
+text-decoration: underline;
+}
+.application-projects-cards{
+  background: transparent linear-gradient(213deg, #2ECB96 0%, #1179C8 100%) 0% 0% no-repeat padding-box;
+border-radius: 8px;
+height: 300px !important;
+}
+.application-projects-btn{
+  background: transparent linear-gradient(213deg, #2ECB96 0%, #1179C8 100%) 0% 0% no-repeat padding-box;
+  border-radius: 8px;
+}
+.card-container {
+  height: 106px; /* Set the desired height */
+  overflow-y: scroll;
+}
+.wiz-bot-btn{
+  border-radius: 50% !important;
+  position: fixed !important;
+  top: 80% !important; /* Adjust the top value as per your requirement */
+  z-index: 1000 !important;
+}
+
+.wiz-bot .bot-icon {
+  display: block;
+}
+.concept-cards {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+
+.application-and-project .titles{
+  font: normal normal 600 18px/22px Montserrat;
+}
+.application-and-project .card-title{
+  font: normal normal 600 16px/24px Montserrat;
+}
+.application-and-project .card-subtitle{
+  font: normal normal 600 13px/24px Montserrat;
+  color: #FFFFFF;
+}
+
+
+/* Latest CSS */
+.kp-demo-v2{
+  background: #252F50 0% 0% no-repeat padding-box;
+}
+.navbar-bar{
+  background: #252F50 0% 0% no-repeat padding-box;
+  box-shadow: inset 0px -2px 1px #0000004D;
+}
+.w-44px{
+  width: 44px;
+}
+.page-title{
+  font: normal normal 900 26px/32px Montserrat;
+}
+.concept-cards{
+  background: transparent linear-gradient(180deg, #E2B627 0%, #E88750 100%) 0% 0% no-repeat padding-box;
+border-radius: 8px;
+}
+.concept-count{
+font: normal normal medium 12px/15px Montserrat;
+letter-spacing: 0px;
+color: #FFFFFF;
+text-shadow: 0px 1px 2px #00000066;
+}
+.concept-name{
+  font: normal normal bold 20px/24px Montserrat;
+letter-spacing: 0px;
+color: #FFFFFF;
+text-shadow: 0px 1px 2px #00000066;
+}
+.section-title{
+  font: normal normal 600 18px/22px Montserrat;
+}
+.h1-text{
+  font-size: 15px;
+  font-style:normal
+}
+
+
+.flip-card {
+  perspective: 1000px;
+}
+
+.flip-card-inner {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+/* .flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+} */
+
+.application-project-front,
+.application-project-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.application-project-back {
+  transform: rotateY(180deg);
+}
+
+.flip-card .card {
+  position: relative;
+}
+
+.flip-card .card-body {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
