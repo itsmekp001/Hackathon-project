@@ -7,9 +7,9 @@ from langchain.llms import OpenAI
 from langchain import PromptTemplate
 import openai
 
-openai.api_key = "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"
+openai.api_key = "#####################################"
 
-os.environ["OPENAI_API_KEY"] = "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"
+os.environ["OPENAI_API_KEY"] = "######################################3"
 current_topic = None
 app = Flask(__name__)
 topic = None
