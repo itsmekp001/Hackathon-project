@@ -1,0 +1,137 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
+
+.wiz-acharya-navbar {
+  /* max-width: 576px; */
+  background: #252f50 0% 0% no-repeat padding-box;
+  box-shadow: inset 0px -2px 1px #0000004d;
+}
+
+.wiz-acharya-navbar .navbar-logo {
+  width: 56px;
+  height: 56px;
+}
+
+.wiz-acharya-container {
+  background: transparent linear-gradient(180deg, #1f2e33 0%, #807874 100%) 0% 0% no-repeat padding-box;
+  background-size: 100% 100%;
+  max-width: 576px;
+  min-height: 1024px;
+}
+
+.wiz-acharya-container .acharya-logo {
+  width: 120px;
+  height: 120px;
+}
+
+.wiz-acharya-container .page-title {
+  font: normal normal 800 30px/37px Montserrat;
+  letter-spacing: 1.2px;
+  color: #ffffff;
+}
+
+.wiz-acharya-container .description {
+  font: normal normal normal 12px/15px Montserrat;
+  color: #ffffff;
+}
+
+.wiz-acharya-container .wiz-form-group .form-label {
+  font: normal normal normal 14px/18px Montserrat;
+  color: #ffffff;
+}
+
+.wiz-acharya-container .wiz-form-group .form-input {
+  background: #ffffff33 0% 0% no-repeat padding-box;
+  border: 1px solid #ffffff;
+  border-radius: 24px;
+}
+
+.wiz-form-group .form-input::-webkit-input-placeholder {
+  font: normal normal normal 14px/18px Montserrat;
+  color: #ffffff;
+}
+
+.wiz-acharya-container #inp_mobile {
+  border-left: none !important;
+}
+
+.wiz-acharya-container .wiz-form-group .country-code-input {
+  background: #ffffff33 0% 0% no-repeat padding-box;
+  border: 1px solid #ffffff;
+  border-top-left-radius: 24px;
+  border-bottom-left-radius: 24px;
+  border-right: 0;
+  font: normal normal normal 14px/18px Montserrat;
+  color: #ffffff;
+}
+.wiz-acharya-container .wiz-form-group .inp-textarea {
+  background: #ffffff33 0% 0% no-repeat padding-box;
+  border: 1px solid #ffffff;
+  border-radius: 12px;
+  font: normal normal normal 14px/18px Montserrat;
+  color: #ffffff;
+}
+.wiz-acharya-container .signup-link-label {
+  font: normal normal normal 12px/15px Montserrat;
+  color: #ffffff66;
+}
+
+.wiz-acharya-container .signup-link {
+  font: normal normal 600 12px/15px Montserrat;
+  color: #ffffff;
+}
+
+.wiz-acharya-container .wiz-btn-6574f9 {
+  background: #6574f9 0% 0% no-repeat padding-box;
+  border-radius: 24px;
+  font: normal normal bold 14px/18px Montserrat;
+  letter-spacing: 0.56px;
+  color: #ffffff;
+}
+
+.wiz-acharya-container .wiz-btn-gradient-ee28b8 {
+  background: transparent linear-gradient(180deg, #6574f9 0%, #ee28b8 100%) 0%
+    0% no-repeat padding-box;
+  border-radius: 16px;
+  font: normal normal bold 23px/28px Montserrat;
+  letter-spacing: 0.92px;
+  color: #ffffff;
+  text-shadow: 0px 3px 6px #00000029;
+}
+
+.wiz-acharya-container .wiz-outline-252f50 {
+  background: #252f50 0% 0% no-repeat padding-box;
+  border: 1px solid #6574f9;
+  border-radius: 24px;
+  font: normal normal normal 14px/18px Montserrat;
+  color: #ffffff;
+}
+
+.wiz-acharya-container .file-uploader-section {
+  background: #252f5055 0% 0% no-repeat padding-box;
+  border: 2px dashed #ffffff;
+  border-radius: 8px;
+}
+.inp-file-uploader{
+  display: none;
+}
+.file-icon {
+  display: inline-block;
+  width: 120px;
+  height: 120px;
+  background: transparent linear-gradient(180deg, #1f2e33 0%, #807874 100%) 0% 0% no-repeat padding-box;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 420px) {
+  .px-xs-15px {
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+  }
+}

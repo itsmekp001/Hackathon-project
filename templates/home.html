@@ -68,7 +68,7 @@
 
           <div class="card-container my-2">
             {% for item in data %}
-            <div class="custom-card concept-cards py-4" onclick="changeDescription('{{ item.description }}')">
+            <div class="custom-card concept-cards py-4" onclick="changeDescription('{{ item.description }}','{{ item.title }}')">
               <div class="text-center concept-count py-1">
                 <u>Concept</u>
               </div>

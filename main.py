@@ -7,15 +7,27 @@ from langchain.llms import OpenAI
 from langchain import PromptTemplate
 import openai
 
-openai.api_key = "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"
+openai.api_key = "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"
 
-os.environ["OPENAI_API_KEY"] = "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"
+os.environ["OPENAI_API_KEY"] = "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"
 current_topic = None
 app = Flask(__name__)
 topic = None
-@app.route('/', methods=['GET', 'POST'])
 
-def index():
+@app.route('/')
+
+def query_proccser():
+    return render_template('options.html')
+@app.route('/upload_file')
+def upload_file_route():
+    return render_template('file_upload.html')
+
+@app.route('/input_text')
+def input_query_route():
+    return render_template('input_query.html')
+
+@app.route('/', methods=['GET', 'POST'])
+def home():
     if request.method == 'POST':
         data_type = request.form.get('data_type')
 
@@ -34,7 +46,7 @@ def index():
             else:
                 print("Unsupported file type")
 
-    return render_template('index.html')
+    return render_template('home.html')
 
 def fetch_pdf_data(file):
     # Read the contents of the file into a BytesIO object
@@ -64,7 +76,7 @@ def process_topic(data):
 
 def get_concepts(text): 
     llm = OpenAI(temperature=0.9,verbose=True,model_name="text-davinci-002")
-    text = f"Give me five concepts in {text} with description link concepts : description"
+    text = f"Give me five concepts in {text} with description,concepts : description format"
     response = llm(text)
     print(f"first {response}")
     return map_data(llm(text))
@@ -103,7 +115,7 @@ def slected_concept():
 
 def get_key(concept):
     llm = OpenAI(temperature=0.9,verbose=True,model_name="text-davinci-002")
-    text = f"Give me five conceptual key terms of {concept} with discription for {topic} topic"
+    text = f"Give me five conceptual key terms of {concept} with discription for {topic} topic,concepts : description format"
 
     response = llm(text)
     print(f"Key response {response}")
@@ -124,7 +136,7 @@ def get_applications():
     data = request.get_json()  # Retrieve the data sent as JSON
     concept = data['title']  # Get the value of h1Content
     llm = OpenAI(temperature=0.9,verbose=True,model_name="text-davinci-002")
-    text = f"Give me five projects in {concept} title with discription"
+    text = f"Give me five projects in {concept} title with discription,concepts : description format"
     response = llm(text)
     print(f"Applications response :  {response}")
     return map_data(response)
@@ -136,7 +148,7 @@ def generate_mcq():
     data = request.get_json()  # Retrieve the data sent as JSON
     concept = data['title']  # Get the value of h1Content
     llm = OpenAI(temperature=0.9,verbose=True,model_name="text-davinci-002")
-    text = f"Give me five questions about {concept}"
+    text = f"Give me five questions about {concept},concepts : description format"
     response = llm(text)
     print(f"Questions response :  {response}")
     return jsonify(response)

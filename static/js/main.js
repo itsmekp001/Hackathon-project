@@ -9,8 +9,10 @@ function loadPage() {
 
       }
   }
+
   function generate_keys(title) {
-    
+    const keyDiv = document.getElementById('key-div');
+    keyDiv.innerHTML = ''; // Clear previously loaded data
     fetch('/send_data', {
       method: 'POST',
       body: JSON.stringify({ title }),
@@ -54,12 +56,19 @@ function loadPage() {
       });
   }
 
-  function changeDescription(description) {
+  function changeDescription(description, title) {
     const descriptionElement = document.getElementById('custom-description');
     descriptionElement.textContent = description;
+    generate_keys(title);
+    get_videos(title);
+    get_applications(title);
+    get_questions(title);
   }
 
   function get_videos(title) {
+    const scrollingWrapperDiv = document.querySelector('.scrolling-wrapper');
+    scrollingWrapperDiv.innerHTML = ''; // Clear previously rendered data
+  
     fetch('/get_videos', {
       method: 'POST',
       body: JSON.stringify({ title }),
@@ -72,34 +81,31 @@ function loadPage() {
         // Remove the single quotes from the string
         responseData = responseData.replace(/'/g, '"');
         // Parse the modified string as an array
-        let arr = JSON.parse(responseData);  
-        console.log("The videos ",arr);
-        const scrollingWrapperDiv = document.querySelector('.scrolling-wrapper');
+        let arr = JSON.parse(responseData);
+        console.log("The videos ", arr);
   
         for (let i = 0; i < arr.length; i++) {
-
-
-            const queryString = arr[i];
-            const parameterName = 'v';
-            
-            const startIndex = queryString.indexOf(parameterName + '=') + parameterName.length + 1;
-            const endIndex = queryString.indexOf('&', startIndex);
-            
-            const value = (endIndex !== -1) ? queryString.substring(startIndex, endIndex) : queryString.substring(startIndex);
-            
-            console.log("The youtube value :",value);
-            
+          const queryString = arr[i];
+          const parameterName = 'v';
+  
+          const startIndex = queryString.indexOf(parameterName + '=') + parameterName.length + 1;
+          const endIndex = queryString.indexOf('&', startIndex);
+  
+          const value = (endIndex !== -1) ? queryString.substring(startIndex, endIndex) : queryString.substring(startIndex);
+  
+          console.log("The youtube value :", value);
+  
           const videoCardDiv = document.createElement('div');
           videoCardDiv.classList.add('card', 'tutorials-cards', 'text-white', 'text-nowrap', 'p-5', 'mx-2');
-            
+  
           const iframeElement = document.createElement('iframe');
           iframeElement.setAttribute('width', '200');
           iframeElement.setAttribute('height', '200');
-          iframeElement.setAttribute('src', "https://www.youtube.com/embed/"+value);
+          iframeElement.setAttribute('src', "https://www.youtube.com/embed/" + value);
           iframeElement.setAttribute('frameborder', '0');
           iframeElement.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
           iframeElement.setAttribute('allowfullscreen', '');
-          
+  
           videoCardDiv.appendChild(iframeElement);
           scrollingWrapperDiv.appendChild(videoCardDiv);
         }
@@ -110,6 +116,9 @@ function loadPage() {
   }
   
   function get_applications(title) {
+    const scrollingWrapperDiv = document.querySelector('.flip-card');
+    scrollingWrapperDiv.innerHTML = ''; // Clear previously loaded data
+  
     fetch('/get_applications', {
       method: 'POST',
       body: JSON.stringify({ title }),
@@ -119,10 +128,6 @@ function loadPage() {
     })
       .then(response => response.json())
       .then(responseData => {
-        
-  
-        const scrollingWrapperDiv = document.querySelector('.flip-card');
-  
         for (let i = 0; i < responseData.length; i++) {
           const item = responseData[i];
           const title = item.title;
@@ -163,8 +168,11 @@ function loadPage() {
         console.log("Error:", error);
       });
   }
-
+  
   function get_questions(title) {
+    const questionsCardsDiv = document.querySelector('.questions-cards');
+    questionsCardsDiv.innerHTML = ''; // Clear previously loaded data
+  
     fetch('/get_questions', {
       method: 'POST',
       body: JSON.stringify({ title }),
@@ -177,8 +185,6 @@ function loadPage() {
         const arrayOutput = responseData.split('\n');
         const filteredArray = arrayOutput.filter(item => item !== "");
         console.log("The question ", filteredArray);
-  
-        const questionsCardsDiv = document.querySelector('.questions-cards');
   
         for (let i = 0; i < filteredArray.length; i++) {
           const item = filteredArray[i];
@@ -194,6 +200,37 @@ function loadPage() {
         console.log("Error:", error);
       });
   }
+  
+
+  function to_uploadfile(){
+        fetch('/upload_file')
+      .then(response => {
+        if (response.ok) {
+          // Redirect to the upload_file page if the request is successful
+          window.location.href = response.url;
+        } else {
+          console.error('Error:', response.status);
+        }
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
+  }
+
+  function to_input_query(){
+    fetch('/input_text')
+  .then(response => {
+    if (response.ok) {
+      // Redirect to the upload_file page if the request is successful
+      window.location.href = response.url;
+    } else {
+      console.error('Error:', response.status);
+    }
+  })
+  .catch(error => {
+    console.error('Error:', error);
+  });
+}
   
   
   
